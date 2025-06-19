@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Text Summarizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🤖 AI Text Summarizer</h1>
+        <p>Transform long articles into concise summaries instantly</p>
+      </div>
+
+      <div class="main-content">
+        <div class="api-config">
+          <h3>⚙️ API Configuration</h3>
+          <div class="input-group">
+            <label for="apiKey">OpenAI API Key:</label>
+            <input
+              type="password"
+              id="apiKey"
+              placeholder="Enter your OpenAI API Key"
+            />
+          </div>
+          <div class="input-group">
+            <label for="summaryLength">Summary Length:</label>
+            <select id="summaryLength">
+              <option value="short">Short (50-100 words)</option>
+              <option value="medium" selected>Medium (100-200 words)</option>
+              <option value="long">Long (200-300 words)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="inputText">📝 Enter text to summarize:</label>
+          <textarea
+            id="inputText"
+            placeholder="Paste your article content here..."
+          ></textarea>
+        </div>
+
+        <button class="summarize-btn" onclick="summarizeText()">
+          ✨ Generate Summary
+        </button>
+
+        <div id="loadingDiv" class="loading" style="display: none">
+          <div class="spinner"></div>
+          <p>AI is analyzing the text...</p>
+        </div>
+
+        <div id="resultContainer" class="result-container">
+          <div class="result-header">
+            <h3>📋 Summary Result</h3>
+            <button class="copy-btn" onclick="copyResult()">Copy</button>
+          </div>
+          <div id="summaryResult" class="summary-text"></div>
+          <div class="stats">
+            <span id="originalLength"></span>
+            <span id="summaryStats"></span>
+          </div>
+        </div>
+
+        <div id="errorDiv" class="error" style="display: none"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
